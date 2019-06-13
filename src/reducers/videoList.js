@@ -1,8 +1,15 @@
 import Redux from 'redux';
-// import cha
-var videoListReducer = (state = sampleData, action) => {
+import { connect } from 'react-redux';
+import changeVideoList from '../actions/videoList.js';
+
+var videoListReducer = (state = [], action) => {
   //TODO: define a reducer for the videoList field of our state.
-  // switch (action.type) 
+  switch (action.type) {
+  case 'CHANGE_VIDEO_LIST': 
+    return action.videos;
+  default: 
+    return state;
+  }
 };
 
 export default videoListReducer;

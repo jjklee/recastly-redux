@@ -2,6 +2,8 @@ import React from 'react';
 import VideoList from './VideoList.js';
 import VideoPlayer from './VideoPlayer.js';
 import Search from './Search.js';
+import VideoPlayerContainer from '../containers/VideoPlayerContainer.js';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -21,6 +23,7 @@ class App extends React.Component {
 
   handleVideoListEntryTitleClick(video) {
     this.setState({currentVideo: video});
+
   }
 
   getYouTubeVideos(query) {
@@ -49,7 +52,7 @@ class App extends React.Component {
         </nav>
         <div className="row">
           <div className="col-md-7">
-            <VideoPlayer video={this.state.currentVideo}/>
+            <VideoPlayerContainer />          
           </div>
           <div className="col-md-5">
             <VideoList
@@ -64,3 +67,7 @@ class App extends React.Component {
 }
 
 export default App;
+
+//if its a class component => this.props
+// if its a stateless component = access through props.
+
