@@ -2,19 +2,10 @@ import { connect } from 'react-redux';
 import VideoList from './../components/VideoList.js';
 import changeVideoList from './../actions/videoList.js';
 
-const VideoListContainer = videos => {
-  // return {
-    // videos: state.videoList
-  // };
-  // handleVideoListEntryTitleClick(video) {
-  //   this.setState({currentVideo: video});
-
-  // }
-  return (dispatch) => {
-    handleVideoListEntryTitleClick(videos) {
-      changeVideoList(videos);
-    }
-  }
+const VideoListContainer = state => {
+  return {
+    videos: state.videoList
+  };
 };
 
 
@@ -22,4 +13,4 @@ const VideoListContainer = videos => {
 // dispatchers with your VideoList component props.
 
 // export default VideoListContainer;
-export default connect(VideoListContainer, {changeVideoList})(VideoList);
+export default connect(VideoListContainer, {handleVideoListEntryTitleClick: changeVideoList})(VideoList);

@@ -13,7 +13,3 @@ export default combineReducers({
   currentVideo,
   videoList
 });
-
-
-
-

@@ -1,9 +1,7 @@
-import React from 'react';
-import VideoList from './VideoList.js';
-import VideoPlayer from './VideoPlayer.js';
-import Search from './Search.js';
+ import React from 'react';
 import VideoPlayerContainer from '../containers/VideoPlayerContainer.js';
-
+import SearchContainer from '../containers/SearchContainer.js';
+import VideoListContainer from '../containers/VideoListContainer.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,31 +11,6 @@ class App extends React.Component {
       videos: [],
       currentVideo: null
     };
-
-    this.getYouTubeVideos = this.getYouTubeVideos.bind(this);
-  }
-
-  componentDidMount() {
-    this.getYouTubeVideos('react tutorials');
-  }
-
-  handleVideoListEntryTitleClick(video) {
-    this.setState({currentVideo: video});
-
-  }
-
-  getYouTubeVideos(query) {
-    var options = {
-      key: this.props.API_KEY,
-      query: query
-    };
-
-    this.props.searchYouTube(options, (videos) =>
-      this.setState({
-        videos: videos,
-        currentVideo: videos[0]
-      })
-    );
   }
 
   //TODO: swap out the React components below for the container components
@@ -47,7 +20,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 col-md-offset-3">
-            <Search getYouTubeVideos={this.getYouTubeVideos}/>
+            <SearchContainer />
           </div>
         </nav>
         <div className="row">
@@ -55,10 +28,7 @@ class App extends React.Component {
             <VideoPlayerContainer />          
           </div>
           <div className="col-md-5">
-            <VideoList
-              handleVideoListEntryTitleClick={this.handleVideoListEntryTitleClick.bind(this)}
-              videos={this.state.videos}
-            />
+            <VideoListContainer />
           </div>
         </div>
       </div>
@@ -67,7 +37,4 @@ class App extends React.Component {
 }
 
 export default App;
-
-//if its a class component => this.props
-// if its a stateless component = access through props.
 

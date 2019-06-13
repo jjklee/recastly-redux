@@ -8,8 +8,8 @@ var handleVideoSearch = (q) => {
   // TODO:  Write an asynchronous action to handle a video search!
   return (dispatch) => {
     searchYouTube({key: YOUTUBE_API_KEY, query: q}, (items) => {
-      dispatch(changeVideo);
-      dispatch(changeVideoList);
+      dispatch(changeVideo(items[0]));
+      dispatch(changeVideoList(items));
     });
   };
 };
