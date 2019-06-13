@@ -1,4 +1,4 @@
- import React from 'react';
+import React from 'react';
 import VideoPlayerContainer from '../containers/VideoPlayerContainer.js';
 import SearchContainer from '../containers/SearchContainer.js';
 import VideoListContainer from '../containers/VideoListContainer.js';
@@ -7,10 +7,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      videos: [],
-      currentVideo: null
-    };
+    // this.state = {
+    //   videoList: [],
+    //   currentVideo: null
+    // };
   }
 
   //TODO: swap out the React components below for the container components
